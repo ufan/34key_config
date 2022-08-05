@@ -13,6 +13,7 @@
 #define COLEMAK 1
 #define NUM     2
 #define SYM     3
+#define FUN     4
 
 &mt {
    flavor = "tap-preferred";
@@ -28,24 +29,6 @@
         bindings = <&kp LS(H) &kp E &kp L &kp L &kp O>
         , <&kp COMMA>
         , <&kp W &kp O &kp R &kp L &kp D &kp EXCL>;
-      )
-
-      ZMK_MACRO(spc1, // for spacemacs window nav, Alt+M+1
-        wait-ms = <0>;
-        tap-ms  = <10>;
-        bindings = <&kp LA(M) &kp N1>;
-      )
-    
-      ZMK_MACRO(spc2,
-        wait-ms = <0>;
-        tap-ms  = <10>;
-        bindings = <&kp LA(M) &kp N2>;
-      )
-    
-      ZMK_MACRO(spc3,
-        wait-ms = <0>;
-        tap-ms  = <10>;
-        bindings = <&kp LA(M) &kp N3>;
       )
     };
    
@@ -227,7 +210,7 @@
      		default_layer {
         		bindings = <
             		&kp Q &kp W      &kp E     &kp R     &kp T    &kp Y &kp U     &kp I      &kp O       &kp P
-             		&kp A &mt LSFT S &lt SYM D &lt NUM F &kp G    &kp H &lt NUM J &lt SYM K  &mt RSFT L  &kp SQT 
+             		&lt FUN A &mt LSFT S &lt SYM D &lt NUM F &kp G    &kp H &lt NUM J &lt SYM K  &mt RSFT L  &lt FUN SQT 
                 &kp Z &kp X      &kp C     &kp V     &kp B    &kp N &kp M     &cmqus     &dtild      &kp SEMI
           			              &mt LALT TAB  &mt LCTL SPACE    &mt RCTL RET    &mt RALT BSPC
              		>;
@@ -236,7 +219,7 @@
      		colemak_layer {
         		bindings = <
             		&kp Q &kp W      &kp F     &kp P     &kp B    &kp J &kp L     &kp U     &kp Y      &kp SQT
-             		&kp A &mt LSFT R &lt SYM S &lt NUM T &kp G    &kp M &lt NUM N &lt SYM E &mt RSFT I &kp O
+             		&lt FUN A &mt LSFT R &lt SYM S &lt NUM T &kp G    &kp M &lt NUM N &lt SYM E &mt RSFT I &lt FUN O
                 &kp Z &kp X      &kp C     &kp D     &kp V    &kp K &kp H     &cmqus    &dtild     &kp SEMI
           			              &mt LALT TAB  &mt LCTL SPACE    &mt RCTL RET    &mt RALT BSPC
              		>;
@@ -244,10 +227,10 @@
 
         number_layer {
             bindings = <
-                &bt BT_NXT  &none     &kp UP    &none      &spc1      &kp KP_PLUS     &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS
-                &bt BT_PRV  &kp LEFT  &kp DOWN  &kp RIGHT  &spc2      &kp KP_MULTIPLY &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_DIVIDE
-                &bt BT_CLR  &none     &none     &none      &spc3      &kp KP_EQUAL    &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_DOT
-                                             &none      &kp BSPC      &kp RET         &kp KP_N0
+                &bt BT_NXT  &none     &kp UP    &none      &none      &kp PLUS     &kp N7 &kp N8 &kp N9 &kp MINUS
+                &bt BT_PRV  &kp LEFT  &kp DOWN  &kp RIGHT  &none      &kp ASTRK    &kp N4 &kp N5 &kp N6 &kp FSLH
+                &bt BT_CLR  &none     &none     &none      &none      &kp EQUAL    &kp N1 &kp N2 &kp N3 &kp DOT
+                                             &none      &kp HOME      &kp END         &kp N0
             >;
         };
 
@@ -260,5 +243,13 @@
             >;
         };
         
+        function_layer {
+            bindings = <
+                &none     &none    &none  &none  &none   &kp F1  &kp F2  &kp F3  &kp F4  &none
+                &none     &none    &none  &none  &none   &kp F5  &kp F6  &kp F7  &kp F8  &none
+                &none     &none    &none  &none  &none   &kp F9  &kp F10 &kp F11 &kp F12 &none  
+                                          &none  &none   &none    &none
+            >;
+        };
    	};
 };
