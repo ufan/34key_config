@@ -185,7 +185,7 @@
  
         combo_pgdn {
             timeout-ms = <50>;
-            key-positions = <22 23>;
+            key-positions = <21 22>;
             bindings = <&kp PG_DN>;
         };
  
